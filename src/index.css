@@ -1,71 +1,84 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
+@layer components {
+    .container {
+        @apply max-w-[1440px] mx-auto p-5 lg:p-8;
+    }
 
+    .button {
+        @apply border py-1 px-3 rounded text-red-500 hover:bg-red-500 hover:text-white transition max-md:hidden;
+    }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    .btn {
+        @apply p-3 text-red-500 hover:bg-red-100 transition rounded-lg;
+    }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* From Uiverse.io by alexruix */
+.loader {
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    position: relative;
 }
 
-a:hover {
-  color: #535bf2;
+.loader:before {
+    content: '';
+    width: 48px;
+    height: 5px;
+    background: #f0808050;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow324 0.5s linear infinite;
 }
 
-body {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  min-height: 100vh;
+.loader:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #f08080;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    animation: jump7456 0.5s linear infinite;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@keyframes jump7456 {
+    15% {
+        border-bottom-right-radius: 3px;
+    }
+
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+        transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
+@keyframes shadow324 {
 
-button:hover {
-  border-color: #646cff;
-}
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
+    50% {
+        transform: scale(1.2, 1);
+    }
 }
