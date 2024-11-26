@@ -1,14 +1,11 @@
 import ActionTypes from "../actionTypes";
 
 
-
-
 const initialState = {
     cart: [],
     isLaoding,
     error: null,
 }
-
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
