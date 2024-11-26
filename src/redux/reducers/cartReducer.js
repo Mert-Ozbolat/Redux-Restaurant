@@ -1,3 +1,5 @@
+import ActionTypes from "../actionTypes";
+
 
 
 
@@ -10,12 +12,12 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'X':
-            return state;
-        case 'Y':
-            return state;
-        case 'Z':
-            return state;
+        case ActionTypes.CART_LOADING:
+            return { ...state, isLaoding: true };
+        case ActionTypes.CART_ERROR:
+            return { ...state, isLaoding: false, error: action.payload?.message };
+        case ActionTypes.CART_SUCCESS:
+            return { ...state, isLaoding: false, error: null, cart: action.payload };
         default:
             return state;
     }
