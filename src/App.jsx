@@ -5,6 +5,7 @@ import Restaurant from './pages/Restaurant'
 import Cart from './pages/Cart'
 import { useDispatch } from 'react-redux'
 import { getRestaurants } from './redux/actions/restActions'
+import { getCart } from './redux/actions/basketActions'
 
 
 
@@ -14,6 +15,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getRestaurants());
+    dispatch(getCart());
   }, []);
 
 
