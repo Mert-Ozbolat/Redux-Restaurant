@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const OrderBox = ({ cart }) => {
-
-    const totalAmount = cart.reduce((total, i) => total + i.amount, 0)
-    const totalPrice = cart.reduce((total, i) => total + i + amount * i.price, 0)
-
+    const totalAmount = cart.reduce((total, i) => total + i.amount, 0);
+    const totalPrice = cart.reduce((total, i) => total + i.amount * i.price, 0);
     return (
         <div className="p-5 rounded-md border h-fit">
             <h2 className="font-semibold text-xl">Sipariş Detayları</h2>
@@ -25,7 +23,7 @@ const OrderBox = ({ cart }) => {
                 Siparişİ Onayla
             </button>
         </div>
-    )
-}
+    );
+};
 
-export default OrderBox
+export default OrderBox;

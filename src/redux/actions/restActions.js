@@ -5,6 +5,7 @@ export const setRestaurants = (payload) => ({
     type: ActionTypes.REST_LOADING,
     payload,
 });
+
 export const getRestaurants = () => {
     return (dispath) => {
         dispath({ type: ActionTypes.REST_LOADING });

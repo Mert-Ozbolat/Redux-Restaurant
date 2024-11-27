@@ -3,7 +3,7 @@ import ActionTypes from "../actionTypes";
 
 const initialState = {
     cart: [],
-    isLaoding,
+    isLaoding: false,
     error: null,
 }
 
@@ -26,4 +26,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
         default:
             return state;
     }
-} 
+}
+
+
+export default cartReducer
