@@ -14,7 +14,7 @@ const ProductCard = ({ item }) => {
     const handleAdd = () => {
         found
             ?
-            dispatch(updateItem(found.id, found.amount + 1))
+            dispatch(updateItem(found.id, found.amount + 1)) :
             dispatch(createItem(item));
     };
 

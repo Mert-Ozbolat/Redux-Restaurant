@@ -1,7 +1,22 @@
 import React from 'react'
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { deleteItem, updateItem } from '../redux/actions/basketActions';
 
 const CartItem = ({ item }) => {
+
+    const dispatch = useDispatch();
+
+    const handleAdd = () => {
+        dispatch(updateItem(item.id, item.amount + 1))
+    }
+
+    const handleDelete = () => {
+        item.amount > 1
+            ? dispatch(updateItem(item.id, item.amount - 1))
+            : dispatch(deleteItem(item.id))
+    }
+
     return (
         <div className='flex gap-4 border mb-10 rounded-lg p-4'>
             <img className='w-[115px] rounded-lg' src={item.photo} />
@@ -16,13 +31,13 @@ const CartItem = ({ item }) => {
                 <div className='border text-xl rounded-lg'>
                     <button className='btn'>
                         {
-                            item.amount > 1 ? <FaMinus /> : <FaTrash />
+                            item.amount > 1 ? <FaMinus onClick={handleDelete} /> : <FaTrash />
                         }
                     </button>
 
                     <span className='p-3'>{item.amount}</span>
 
-                    <button className='btn'><FaPlus /></button>
+                    <button onClick={handleAdd} className='btn'><FaPlus /></button>
                 </div>
 
             </div>
